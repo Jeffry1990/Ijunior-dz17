@@ -12,3 +12,4 @@ C:\Users\warlo\source\repos\ConsoleApp56\obj\Debug\net8.0\refint\ConsoleApp56.dl
 C:\Users\warlo\source\repos\ConsoleApp56\obj\Debug\net8.0\ConsoleApp56.pdb
 C:\Users\warlo\source\repos\ConsoleApp56\obj\Debug\net8.0\ConsoleApp56.genruntimeconfig.cache
 C:\Users\warlo\source\repos\ConsoleApp56\obj\Debug\net8.0\ref\ConsoleApp56.dll
+C:\Users\warlo\source\repos\ConsoleApp56\obj\Debug\net8.0\ConsoleApp56.sourcelink.json

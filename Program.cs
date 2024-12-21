@@ -48,8 +48,9 @@ namespace ConsoleApp56
 
             while (playerHealth > 0 && bossHealth > 0)
             {
-                Console.WriteLine($"\nВыберете заклинание для атаки:\n1 - {commonAttack}\n2 - {fireBall}\n3 - {explosion}" +
-                    $"\n4 - {restoringHealAndMana} (Восстанавливает игроку полностью здоровье и ману. Можно использовать 2 раза.)");
+                Console.WriteLine($"\nВыберете заклинание для атаки:\n{CommandCommonAttack} - {commonAttack}\n{CommandFireball}" +
+                    $" - {fireBall}\n{CommandExplosion} - {explosion}\n{CommandRestoringHealAndMana} - " +
+                    $"{restoringHealAndMana} (Восстанавливает игроку полностью здоровье и ману. Можно использовать 2 раза.)");
 
                 int minBossAttack = 250;
                 int maxBossAttack = 351;
@@ -80,8 +81,8 @@ namespace ConsoleApp56
                             playerMana -= commonAttackManaCost;
 
                             Console.Clear();
-                            Console.WriteLine($"Босс потерял {playerCommonAttack} здоровья. Игрок потерял " +
-                                $"{bossAttack} здоровья\nУ вас осталось {playerHealth} здоровья " +
+                            Console.WriteLine($"Вы нанесли {playerCommonAttack} урона. Босс нанес " +
+                                $"{bossAttack} урона\nУ вас осталось {playerHealth} здоровья " +
                                 $"и {playerMana} маны\nУ босса осталось {bossHealth} здоровья ");
                         }
                         else
@@ -90,7 +91,7 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
@@ -103,8 +104,8 @@ namespace ConsoleApp56
                             usedFireBall = true;
 
                             Console.Clear();
-                            Console.WriteLine($"Босс потерял {playerFireball} здоровья. Игрок потерял" +
-                                $" {bossAttack} здоровья\nУ вас осталось {playerHealth} здоровья" +
+                            Console.WriteLine($"Вы нанесли {playerFireball} урона. Босс нанес" +
+                                $" {bossAttack} урона\nУ вас осталось {playerHealth} здоровья" +
                                 $" и {playerMana} маны\nУ босса осталось {bossHealth} здоровья ");
                         }
                         else
@@ -113,7 +114,7 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
@@ -125,8 +126,8 @@ namespace ConsoleApp56
                             playerMana -= explosionManaCost;
 
                             Console.Clear();
-                            Console.WriteLine($"Босс потерял {playerExplosion} здоровья. Игрок потерял" +
-                                $" {bossAttack} здоровья\nУ вас осталось {playerHealth} здоровья" +
+                            Console.WriteLine($"Вы нанесли {playerExplosion} урона. Босс нанес" +
+                                $" {bossAttack} урона\nУ вас осталось {playerHealth} здоровья" +
                                 $" и {playerMana} маны\nУ босса осталось {bossHealth} здоровья ");
 
                         }
@@ -140,7 +141,7 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
@@ -153,7 +154,7 @@ namespace ConsoleApp56
                             playerHealth -= bossAttack;
 
                             Console.Clear();
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья\nУ вас осталось {playerHealth} здоровья" +
+                            Console.WriteLine($"Босс нанес {bossAttack} урона\nУ вас осталось {playerHealth} здоровья" +
                                 $" и {playerMana} маны\nУ босса осталось {bossHealth} здоровья ");
                         }
                         else if (usedRestoringHealAndMana <= 0)
@@ -162,7 +163,7 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
                         }
                         else
                         {
@@ -170,7 +171,7 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
@@ -180,26 +181,24 @@ namespace ConsoleApp56
 
                             playerHealth -= bossAttack;
 
-                            Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+                            Console.WriteLine($"Босс нанес {bossAttack} урона.\nУ вас осталось {playerHealth} здоровья");
 
                             break;
                         }
                 }
+            }
 
-                if (playerHealth <= 0 && bossHealth > 0)
-                {
-                    Console.WriteLine("\nИгрок погиб!");
-                }
-
-                else if (playerHealth > 0 && bossHealth <= 0)
-                {
-                    Console.WriteLine("\nИгрок победил!");
-                }
-
-                else if (playerHealth <= 0 && bossHealth <= 0)
-                {
-                    Console.WriteLine("\nНичья!");
-                }
+            if (playerHealth <= 0 && bossHealth > 0)
+            {
+                Console.WriteLine("\nИгрок погиб!");
+            }
+            else if (playerHealth > 0 && bossHealth <= 0)
+            {
+                Console.WriteLine("\nИгрок победил!");
+            }
+            else if (playerHealth <= 0 && bossHealth <= 0)
+            {
+                Console.WriteLine("\nНичья!");
             }
         }
     }
