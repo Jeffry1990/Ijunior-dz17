@@ -70,11 +70,10 @@ namespace ConsoleApp56
                 Console.Write("\n");
                 string userInputSpell = Console.ReadLine();
 
-
                 switch (userInputSpell)
                 {
                     case CommandCommonAttack:
-                        if (playerHealth > 0 && playerMana >= commonAttackManaCost)
+                        if (playerMana >= commonAttackManaCost)
                         {
                             bossHealth -= playerCommonAttack;
                             playerHealth -= bossAttack;
@@ -88,13 +87,15 @@ namespace ConsoleApp56
                         else
                         {
                             Console.WriteLine("Недостаточно маны!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
                     case CommandFireball:
-                        if (playerHealth > 0 && playerMana >= fireBallManaCost)
+                        if (playerMana >= fireBallManaCost)
                         {
                             bossHealth -= playerFireball;
                             playerHealth -= bossAttack;
@@ -109,13 +110,15 @@ namespace ConsoleApp56
                         else
                         {
                             Console.WriteLine("Недостаточно маны!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
                     case CommandExplosion:
-                        if (playerHealth > 0 && playerMana > explosionManaCost && usedFireBall == true)
+                        if (playerMana > explosionManaCost && usedFireBall == true)
                         {
                             bossHealth -= playerExplosion;
                             playerHealth -= bossAttack;
@@ -134,18 +137,21 @@ namespace ConsoleApp56
                         else
                         {
                             Console.WriteLine("Недостаточно маны!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
 
                     case CommandRestoringHealAndMana:
-                        if (playerHealth > 0 && usedRestoringHealAndMana > 0)
+                        if (usedRestoringHealAndMana > 0)
                         {
                             usedRestoringHealAndMana--;
                             playerHealth = playerHealthFull;
                             playerMana = playerManaFull;
                             playerHealth -= bossAttack;
+
                             Console.Clear();
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья\nУ вас осталось {playerHealth} здоровья" +
                                 $" и {playerMana} маны\nУ босса осталось {bossHealth} здоровья ");
@@ -153,13 +159,17 @@ namespace ConsoleApp56
                         else if (usedRestoringHealAndMana <= 0)
                         {
                             Console.WriteLine("У вас закончились заряды!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
                         }
                         else
                         {
                             Console.WriteLine("Недостаточно маны!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
                         }
                         break;
@@ -167,11 +177,15 @@ namespace ConsoleApp56
                     default:
                         {
                             Console.WriteLine("Неверная команда!");
+
                             playerHealth -= bossAttack;
+
                             Console.WriteLine($"Игрок потерял {bossAttack} здоровья.\nУ вас осталось {playerHealth} здоровья");
+
                             break;
                         }
                 }
+
                 if (playerHealth <= 0 && bossHealth > 0)
                 {
                     Console.WriteLine("\nИгрок погиб!");
